@@ -7,21 +7,19 @@ import { authRoutes } from "./modules/auth/auth.routes";
 const app = express();
 // parser
 app.use(express.json());
-// app.use(express.urlencoded());
 
 // initializing DB
 initDB();
 
-// "/" -> localhost:5000/
 app.get("/", logger, (req: Request, res: Response) => {
-  res.send("Hello Next Level Developers!");
+  res.send("Hello Assignment 2");
 });
-
-//users CRUD
-app.use("/api/v1/users", userRoutes);
 
 //auth routes
 app.use("/api/v1/auth", authRoutes);
+
+//users CRUD
+app.use("/api/v1/users", userRoutes);
 
 app.use((req, res) => {
   res.status(404).json({
