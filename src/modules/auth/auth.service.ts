@@ -49,14 +49,14 @@ const signinUser = async (email: string, password: string) => {
   }
 
   const token = jwt.sign(
-    { name: user.name, email: user.email, role: user.role },
+    { id: user.id, name: user.name, email: user.email, role: user.role },
     config.jwtSecret as string,
     {
       expiresIn: "7d",
     }
   );
 
-  // Remove password before sending response
+  // Removing password before sending response
   const filteredUser = {
     id: user.id,
     name: user.name,
