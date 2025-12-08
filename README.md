@@ -1,6 +1,6 @@
-# Vehicle Rental Management System
+# Assignment 2 - Vehicle Rental Management System
 
-**Live URL:** [https://your-live-app-url.com](https://your-live-app-url.com)
+**Live URL:** [https://assignment-2-mocha-delta.vercel.app/](https://assignment-2-mocha-delta.vercel.app/)
 
 ---
 
