@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
 import initDB from "./config/db";
+import logger from "./middleware/logger";
 import { userRoutes } from "./modules/user/user.routes";
 import { authRoutes } from "./modules/auth/auth.routes";
 import { vehicleRoutes } from "./modules/vehicles/vehicle.route";
@@ -11,6 +12,10 @@ app.use(express.json());
 
 // initializing DB
 initDB();
+
+app.get("/", logger, (req: Request, res: Response) => {
+  res.send("Hello Assignment 2");
+});
 
 //auth routes
 app.use("/api/v1/auth", authRoutes);

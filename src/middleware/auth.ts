@@ -18,18 +18,18 @@ const auth = (...roles: string[]) => {
         : authHeader;
 
       if (!token) {
-        return res.status(500).json({ message: "You are not allowed!!" });
+        return res.status(401).json({ message: "You are not allowed!!" });
       }
       const decoded = jwt.verify(
         token,
         config.jwtSecret as string
-      ) as JwtPayload;
+      ) as JwtPayload & { id: number; role: string };
 
       req.user = decoded;
 
       // roles = ["admin"]
       if (roles.length && !roles.includes(decoded.role as string)) {
-        return res.status(500).json({
+        return res.status(403).json({
           error: "unauthorized!!!",
         });
       }
